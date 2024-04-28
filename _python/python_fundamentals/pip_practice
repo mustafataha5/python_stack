@@ -1,0 +1,12 @@
+cd python_stack
+pip3 list # list all packages that install in your enverimonent (local).
+source myEnvironments/py3Env/bin/activate 
+pip3 list # list all packages that install in your virtaul  enverimonent .
+
+pip install Dijango==2.2.4 # Could not find a version that satisfies the requirement Dijango==2.2.4(from versions: none)
+
+pip freeze #  list the installed packages and the version of each package  
+
+pip freeze > requirements.txt # create file named 'requirements.txt' and put the output of 'pip freeze' on the created file 
+pip uninstall Django
+pip show Django
