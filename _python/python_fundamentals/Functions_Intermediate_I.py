@@ -22,3 +22,5 @@ print(randInt(min=50))
 print(randInt(min=50, max=500))    
 print(randInt(min=1000, max=500)) 
 print(randInt(max=-1)) 
+
+
