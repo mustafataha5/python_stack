@@ -3,7 +3,6 @@ class Account_Bank:
         self.balance = balance 
         self.int_rate = int_rate
         self.serial = serial
-        self.next = None 
 
     def deposit(self, amount): 
         self.balance = self.balance+amount
