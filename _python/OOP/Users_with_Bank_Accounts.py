@@ -1,4 +1,4 @@
-class Account_Bank: 
+class AccountBank: 
     def __init__(self,balance=0,int_rate=0.01,serial="") :
         self.balance = balance 
         self.int_rate = int_rate

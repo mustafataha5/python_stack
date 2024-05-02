@@ -1,4 +1,4 @@
-class Account_Bank: 
+class AccountBank: 
     def __init__(self,balance=0,int_rate=0.01,serial="") :
         self.balance = balance 
         self.int_rate = int_rate
@@ -56,7 +56,7 @@ class User:
         other.make_deposit(other_num,amount)
         return self
     
-    def Create_Account(self,balance = 0): 
+    def create_account(self,balance = 0): 
         # newAccount = Account_Bank(balance)
         # current = self.account 
         # while(current.next): 
