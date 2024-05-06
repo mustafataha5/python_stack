@@ -1,0 +1,10 @@
+h1{
+    color: rgb(66, 170, 170);
+}
+.student{
+    color: gold;
+    background-color: black;
+    width: 25%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
