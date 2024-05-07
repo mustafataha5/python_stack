@@ -22,7 +22,7 @@ def make_count():
     #     session['count'] = 1 
     return redirect("/")     
 
-@app.route("/reset",methods=['POST'])
+@app.route("/destroy_session",methods=['POST'])
 def reset_count():
     #session.clear()		# clears all keys
     session.pop('count')		# clears a specific key
