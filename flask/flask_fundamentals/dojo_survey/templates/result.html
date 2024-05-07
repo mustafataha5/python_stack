@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo survey Result</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="container"> 
+        <h1>Submited Info</h1>
+        <form action="/" >
+            <table>
+                <tr>
+                    <td class="bold_t">Name</td>
+                    <td class="bold_t">{{name}}</td>
+                </tr>
+                <tr>
+                    <td class="bold_t">Dojo location</td>
+                    <td class="bold_t">{{locat}}</td>
+                </tr>
+                <tr>
+                    <td class="bold_t">Favorite Language</td>
+                    <td class="bold_t">{{lang}}</td>
+                </tr>
+                <tr>
+                    <td class="bold_t">Comment</td>
+                    <td class="bold_t">{{comment}}</td>
+                </tr>
+            </table>
+        
+            <button class="btn" type="submit" >Go back</button>
+        
+        </form>
+    </div>
+</body>
+</html>
