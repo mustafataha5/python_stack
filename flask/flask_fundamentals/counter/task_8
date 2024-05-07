@@ -1,0 +1,9 @@
+import base64 
+
+
+base64.urlsafe_b64decode('eyJjb3VudCI6MX0===') ## b'{"count":1}'
+base64.urlsafe_b64decode('eyJjb3VudCI6N30===') ## b'{"count":7}'
+
+
+
+
