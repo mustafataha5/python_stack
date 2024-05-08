@@ -9,11 +9,18 @@ app.secret_key = 'keep it secret, keep it safe'
 def show():
     print(session)
     if 'count' in session :
-        if 'from_function' not in session or session['from_function'] == False : 
+        if 'from_function' not in session or session['from_function'] == False :  
             session['count'] = session['count'] + 1
     else: 
         session['count'] = 1
-    session['from_function'] = False        
+         
+        
+    if 'user_count' in session :
+        if 'from_function' not in session or session['from_function'] == False:
+            session['user_count'] = session['user_count']+1 
+    else: 
+        session['user_count'] = 1 
+    session['from_function'] = False       
     return render_template("index.html")
 
 @app.route("/increamt",methods=['POST'])
@@ -26,7 +33,7 @@ def make_count():
     #     session['count'] = 1 
     return redirect("/")     
 
-@app.route("/destroy_session",methods=['POST'])
+@app.route("/destroy_session")
 def reset_count():
     session.clear()		# clears all keys
     #session.pop('count')		# clears a specific key

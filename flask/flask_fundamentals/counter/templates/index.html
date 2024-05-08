@@ -14,6 +14,14 @@
           Featured
         </div> -->
         <div class="card-body">
+          <h1 class="card-title">Counter user</h1>
+          {% if 'user_count' in session and  session['user_count'] ==1:   %}
+                <p class="card-text ">{{session['user_count']}} time </p>
+          {%else:%}
+                <p class="card-text ">{{session['user_count']}} times</p>
+          {% endif %}
+        </div>  
+        <div class="card-body">
           <h1 class="card-title">Counter</h1>
           {% if 'count' in session and  session['count'] ==1:   %}
                 <p class="card-text ">{{session['count']}} time </p>
@@ -23,12 +31,13 @@
           <form action="/increamt" method="post">
             <button type="submit" class="btn btn-lg btn-success">Add two visit !</button>
           </form>
-          <form action="/destroy_session" method="post">
-            <button type="submit" class="btn btn-lg btn-danger">Reset</button>
-          </form>
+          <a href="/destroy_session" class="btn btn-lg btn-danger">Reset</a>
+          <!-- <form action="/destroy_session" method="post">
+            
+          </form> -->
           <div>
             <form action="/increamt_by_n" method="post">
-                <p>Enter N : <input type="number"  name="n"></p>
+                <p>Enter N : <input type="number"  name="n" value=0 min=1 ></p>
                 <button type="submit" class="btn btn-lg btn-warning">Increamnt by N</button>
               </form>
           </div>  
