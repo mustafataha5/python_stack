@@ -25,6 +25,9 @@ h1{
     width: 25em; 
     padding: 10px 30px; 
 }
+#time1,#date{
+    padding: 5px;
+}
 
 
 
