@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <div class="main">
+        <h2>Welcome to the Great Number Game!</h2>
+        <p>I am thinking of a number between 1 and  100</p>
+        <p>Take a guess!</p>
+    </div>
+    {% if 'win' in session and session['win'] == False :%}
+        <h2 class="guess_count">Count for your guess:{{session['guess_count']}}</h2>
+        {% if session['can_guess']:%}
+            <div class="guess_box red">
+                {% if session['low'] %}
+                    <h2>Too low!</h2>
+                {% else %}
+                    <h2>Too high!</h2>
+                {% endif %}    
+            </div>
+        {% else%}
+        <div class="guess_box exit_color">
+            <h2>you exceed the allowed count to guess!</h2>
+            <a href="/play_again" class="btn btn_a" >Play again!</a>
+        </div>
+        {% endif %}    
+        
+    {%elif 'win' in session and session['win'] == True :%} 
+
+        <h2 class="guess_count">Count for your guess:{{session['guess_count']}}</h2>
+        <div class="guess_box green">
+            <h2>{{session['user_guess']}} was the </h2>
+            <h2> number!</h2>
+            <a href="/play_again" class="btn btn_a" >Play again!</a>
+        </div>
+        <h2 class="guess_count"> Save the Winner Name:</h2>
+        <form action="/save_winner" method="post">
+            <input type="text" name="winner_name" placeholder="Enter your name please" required> 
+            <button class='btn' type="submit">Submit</button>
+        </form> 
+    {% endif %}
+    {%if (not 'win' in session or session['win'] == False) and session['can_guess']: %}
+        <form action="/guess" method="post">
+            <input type="number" name="user_guess" value=1 min=1 max=100 required> 
+            <button class='btn' type="submit">Submit</button>
+        </form> 
+    {% endif %}  
+    
+    {%if 'winner' in session and length_of_list >= 1:%}
+        <a href="/show" class="btn" id="btn_winner" >Show winners</a> 
+        
+    {% endif %}
+
+</body>
+</html>

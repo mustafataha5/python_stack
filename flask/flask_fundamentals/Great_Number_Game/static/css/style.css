@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+h1,p{
+    padding: 10px 5px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+form{
+    width: 25em;
+    margin: 0 auto;
+    margin-top: 20px;
+    
+}
+input {
+    display: block;
+    margin:  0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;    
+    padding: 2px 5px ;
+}
+
+.btn{
+    text-decoration: none;
+    display: block;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 20px;
+    box-shadow: 3px 3px black;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+.btn_a {
+    margin-top: 40px;
+}
+#btn_winner,#btn_back{
+    text-align: center;
+    width: 15em;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#btn_winner:hover{
+    background-color: #009e0f;
+    color: white;
+}
+#btn_back:hover{
+    background-color:#1392c4;
+    color: white;
+}
+.btn:hover{
+    background-color: rgb(78, 75, 75);
+    color: white;
+}
+
+.guess_box{
+    border: 2px solid black;
+    width: 20em;
+    height: 15em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.guess_box > h2{
+    color: white;
+    text-align: center;
+    margin: 10px 10px;
+}
+
+.red{
+    background-color: #cf2a27;
+}
+.green{
+    background-color: #009e0f;
+}
+.exit_color{
+    background-color: #1392c4;
+}
+
+.guess_count{
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+
