@@ -18,15 +18,30 @@
 
 <body>
 
-    <div class="top">
-        <div class="gold">
-            <h3 class="gtitle">Your gold:</h3>
-            <p id="your_gold">{{session['total_gold']}}</p>
-        </div>
-        <a href="/reset" class="btn btn-danger" id="btn_back" >Reset</a>
-    </div>
+    <!-- <div class="top"> -->
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="gold">
+                    <h3 class="gtitle">Your gold:</h3>
+                    <h3 id="your_gold">{{session['total_gold']}}</h3>
+                </div>  
+              <!-- <a class="navbar-brand">Navbar</a> -->
+              <div >
+                <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                <h4 class="form-control me-2" >Number of Move: {{session['counter']}}</h4>
+                {% if  session['game_finish'] %}
+                <a href="/reset" class="btn  btn-outline-danger " id="#btn_back"  >Reset</a>
+                {%endif%}
+              </div>
+            </div>
+          </nav>
+        
     
-
+    {%if  session['game_finish'] and session['win']%}
+          <h1 class="text-center">You win</h1>
+    {%elif session['game_finish'] and  not session['win'] %}
+        <h1 class="text-center"> You loss</h1>
+    {%endif%}          
     <div class="cards">
 
         <div class="row cards">

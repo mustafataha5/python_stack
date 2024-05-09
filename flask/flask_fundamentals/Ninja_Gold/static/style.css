@@ -4,23 +4,26 @@
 }
 .top{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
 .gold{
-    width: 25em;
-    margin: 2.5em 3em;
+    width: 20em;
+    margin: 1em 0em 1em 3em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 .gtitle{
     width: 6em;
-    margin: 5px 10px;
-    display: inline-block;
+    margin: 10px 5px;
 }
+
 #your_gold{
-    width: 10em;
-    display: inline-block;
+    width: 5em;
     border: 2px solid black ;
-    padding: 3px 5px;
+    padding: 2px 2px;
+    margin: 10px 10px;
     font-weight: bold;
 }
 
@@ -57,14 +60,15 @@
     color: #ec2c25;
 }
 #btn_back{
-    text-align: center;
-    width: 15em;
-    height: fit-content;
-    margin: 0 auto;
-}
-#btn_back:hover{
     background-color:white;
     color: #dc3545;
+    text-align: center;
+    width: 10em;
+    height: fit-content;
+}
+#btn_back:hover{
+    background-color: #dc3545;
+    color: white;
 }
 .btn-light:hover{
     color:#000;
