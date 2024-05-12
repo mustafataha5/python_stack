@@ -1,0 +1,24 @@
+.card{
+    width: fit-content;
+    height: 50%;
+    border: 2px solid #888;
+    padding: 10px;
+    margin: 3em auto;
+}
+
+.card-body{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.btn{
+    margin: 20px 10px;
+}
+.card-text,.card-title{
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    width: fit-content;
+}
