@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="main">
+        <h2>Welcome to the Great Number Game!</h2>
+        <p>I am thinking of a number between 1 and  100</p>
+        <p>Take a guess!</p>
+    </div>
+    {% if  request.session.win == False and request.session.counter > 0 and request.session.counter <= 8 %}
+        <h2 class="guess_count">Count for your guess:{{request.session.counter}}</h2>
+            <div class="guess_box red">
+                {% if request.session.low %}
+                    <h2>Too low!</h2>
+                {% else %}
+                    <h2>Too high!</h2>
+                {% endif %}    
+            </div>
+    {%elif  request.session.counter > 8 and request.session.win == False %}
+         <div class="guess_box exit_color">
+            <h2>you exceed the allowed count to guess!</h2>
+            <a href="/play_again" class="btn btn_a" >Play again!</a>
+        </div>
+    {%elif  request.session.win == True %}
+        <div class="guess_box green">
+            <h2>you Win </h2>
+            <h2>{{request.session.random_number}} was the </h2>
+            <h2> number!</h2>
+            <a href="/play_again" class="btn btn_aa" >Play again!</a>
+        </div>    
+        <h2 class="guess_count"> Save the Winner Name:</h2>
+        <form action="/save_winner" method="post">
+            {% csrf_token%}
+            <input type="text" name="winner_name" placeholder="Enter your name please" required> 
+            <button class='btn' type="submit">Submit</button>
+        </form> 
+    {% endif %}
+
+    {%if not 'win' in request.session or  request.session.win == False  %}
+        <form action="/guess" method="post">
+            {% csrf_token%}
+            <input type="number" name="user_guess" value=1 min=1 max=100 required> 
+            <button class='btn' type="submit">Submit</button>
+        </form> 
+    {%endif%}    
+    {%if  request.session.win == True  or request.session.in_list %}
+        <a href="/show" class="btn" id="btn_winner" >Show winners</a>
+    {%endif%}
+
+</body>
+</html>
