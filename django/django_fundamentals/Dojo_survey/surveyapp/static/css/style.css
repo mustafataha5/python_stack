@@ -1,0 +1,64 @@
+*{
+    font-size: 17px;
+    
+}
+
+.container{
+    width: 35em;
+    height: 32em;
+    margin: 50px auto;
+    border: 1px solid black;
+}
+
+form{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    height: 32em;
+    
+}
+
+form *{
+    padding: 5px 0px;
+    margin: 5px 0px ;
+}
+
+button{
+    width: 100px;
+    height: 40px;
+    background-color: #76a5b0;
+    color: white;
+    box-shadow: 3px 3px black;
+    margin-left: 340px;
+
+}
+
+.btn{
+    margin-top: 185px ;
+}
+
+textarea{
+    display: block;
+    margin: 10px 0px;
+    width: 440px;
+    border: 1px solid black;
+}
+
+input,select{
+    width: 215px;
+    border: 1px solid black;
+}
+table{
+    width: 100%;
+}
+.bold_t {
+    font-weight: bold;
+    width: max-content;
+    padding:  5px 10px;  
+    font-size: 20px;  
+}
+h1{
+    text-decoration: underline;
+    margin: 40px 50px;
+    font-size: 25px;
+}

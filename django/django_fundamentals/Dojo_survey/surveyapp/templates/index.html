@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form action="/result" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td class="bold_t">Your Name</td>
+                    <td><input type="text" name="Name"></td>
+                </tr>
+                <tr>
+                    <td class="bold_t">Dojo location</td>
+                    <td>
+                        <select name="location">
+                            <option value="San Jose">San Jose</option>
+                            <option value="Ramallah">Ramallah</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold_t">Favorite Language</td>
+                    <td>
+                        <select name="lang">
+                            <option value="Python">Python</option>
+                            <option value="JavaScript">JavaScript</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold_t">Gender</td>
+                    <td>
+                        <label for="gender"> <input type="radio" name="gender" value="male"> Male</label>
+                        <label for="gender"> <input type="radio" name="gender" value="Female"> Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold_t">fruits</td>
+                    <td>
+                        <label for="fruits"> <input type="checkbox" name="fruits" value="apple"> Apple</label>
+                        <label for="fruits"> <input type="checkbox" name="fruits" value="orange"> Orange</label>
+                        <label for="fruits"> <input type="checkbox" name="fruits" value="banana"> Banana</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold_t">Comment (Optinal)</td>
+                </tr>
+
+            </table>
+            <textarea name="comment"  cols="30" rows="10"></textarea>
+            <button  type="submit">Button</button>
+        </form>
+
+    </div>
+</body>
+</html>
