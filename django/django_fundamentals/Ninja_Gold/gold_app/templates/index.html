@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light mt-5 px-5">
+        <div class="container-fluid">
+            <div class="d-flex">
+                <h2>Your Gold:</h2>
+                <h2 id="current_gold" class=" px-2">{{request.session.num_of_gold}}</h2>
+                <h2 id="goal_gold" class="mx-2"> /{{request.session.total_gold}} </h2>
+            </div>
+            <div class="d-flex">
+                <h2 class="mx-4 px-2 ">Number of step: {{request.session.counter}}/{{request.session.total_step}} </h2>
+                <form class="reset_form" action="{% url 'gold:reset' %}" method="post" >
+                    {% csrf_token %}
+                    <button id="reset_btn" class="btn btn-outline-danger" type="submit">Reset</button>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="row p-5 justify-content-md-center">
+
+        <div class="col-sm-3">
+            <div class="card border-dark h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center mb-3">Farm</h5>
+                    <p class="card-text mb-4">(earns 10-20 gold)</p>
+                   
+                    <a class="btn btn-outline-dark " href="{%url 'gold:process' from_which='farm'%}">Find Gold!</a>
+                    
+                    <!-- <form action="/process_money" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="gold_location" value="farm">
+                        <button type="submit" class="btn btn-outline-dark"> Find Gold!</button>
+                    </form> -->
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card border-dark h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center mb-3">Cave</h5>
+                    <p class="card-text  mb-4">(earns 10-20 gold)</p>
+                     <a class="btn btn-outline-dark " href="{%url 'gold:process' from_which='cave'%}">Find Gold!</a>
+                    
+                     <!-- <form action="/process_money" method="post">
+                        {% csrf_token %}
+                        <input type="hidden"  name="gold_location" value="cave">
+                        <button type="submit" class="btn btn-outline-dark"> Find Gold!</button>
+                    </form> -->
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card border-dark h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center mb-3">House</h5>
+                    <p class="card-text  mb-4">(earns 10-20 gold)</p>
+                    
+                    <a class="btn btn-outline-dark " href="{%url 'gold:process' from_which='house'%}">Find Gold!</a>
+                    <!-- <form action="/process_money" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="gold_location" value="house">
+                        <button type="submit" class="btn btn-outline-dark"> Find Gold!</button>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card border-dark h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center mb-3">Quest</h5>
+                    <p class="card-text mb-4">(earns/takes10-20 gold)</p>
+                    <a class="btn btn-outline-dark " href="{%url 'gold:process' from_which='quest'%}">Find Gold!</a>
+                    <!-- <form action="/process_money" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="gold_location" value="quest">
+                        <button type="submit" class="btn btn-outline-dark"> Find Gold!</button>
+                    </form> -->
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" mx-5">
+        <h5 class="bold">Activity:</h5>
+        <ul  id="activity_list"  >
+            {{request.session.message|safe}}
+        </ul>
+      </div>
+
+</body>
+
+</html>
