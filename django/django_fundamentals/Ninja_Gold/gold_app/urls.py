@@ -8,5 +8,6 @@ urlpatterns = [
     path("gold",views.gold,name='gold_page'),
     path("process_money/<str:from_which>",views.process,name='process'),
     path("reset",views.reset,name='reset'),
+    path("show",views.show)
     #path('admin/', admin.site.urls),
 ]

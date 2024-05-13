@@ -15,9 +15,9 @@ def gold (request):
         
     if  request.session['total_gold'] <= request.session['num_of_gold']:
             request.session['win'] = True 
-            return render(request,'show.html')
+            return redirect("/show")
     if  request.session['counter'] >= request.session['total_step']: 
-            return render(request,'show.html')
+           return redirect("/show")
      
     return render(request,'index.html')
 
@@ -68,5 +68,6 @@ def set_attr(request):
     return redirect("/reset")
 
 
-
+def show(req):
+    return render(req,'show.html')
 
