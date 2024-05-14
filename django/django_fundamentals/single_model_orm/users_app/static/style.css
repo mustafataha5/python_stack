@@ -6,8 +6,11 @@ hr{
     max-height:300px;
 }
 
-/* .user_table{
-    height: 10em;
+.user_table{
+    display: block ;
     max-height: 10em;
     overflow: scroll;
-}  */
+} 
+.user_table > tr {
+    display: table-row;
+}
