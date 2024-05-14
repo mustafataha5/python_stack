@@ -1,0 +1,13 @@
+hr{
+    border: 2px solid #444;
+}
+
+.table-responsive{
+    max-height:300px;
+}
+
+/* .user_table{
+    height: 10em;
+    max-height: 10em;
+    overflow: scroll;
+}  */
