@@ -35,7 +35,11 @@ def add_ninja(req):
     return  redirect("/")             
             
             
-            
+def delete_dojo(req,id): 
+    if req.method == "GET": 
+        del_dojo = Dojo.objects.get(id=id)
+        del_dojo.delete()
+    return redirect("/")                
             
             
             
