@@ -1,0 +1,51 @@
+
+from dojo_ninjas_app.models import Dojo,Ninja
+
+#Q 1
+Dojo.objects.create(name="doja1",city="city1",state="NK")
+Dojo.objects.create(name="doja2",city="city2",state="TK")
+Dojo.objects.create(name="doja3",city="city3",state="RM")
+
+#Q 2
+all_dojo = Dojo.objects.all()
+all_dojo.delete()
+
+
+#Q 3
+Dojo.objects.create(name="doja4",city="Ramallah",state="PS")
+Dojo.objects.create(name="doja5",city="Nablus",state="PS")
+Dojo.objects.create(name="doja6",city="Hebron",state="PS")
+
+
+#Q 4
+
+Ninja.objects.create(first_name="mustafa",last_name="taha",dojo=Dojo.objects.first())
+first_dojo = Dojo.objects.first()
+Ninja.objects.create(first_name="yousf",last_name="mohomad",dojo=first_dojo)
+Ninja.objects.create(first_name='raghad',last_name="saleem",dojo=first_dojo)
+
+#Q 5
+second_dojo = Dojo.objects.get(id=5)
+Ninja.objects.create(first_name="ninja1",last_name="show",dojo=second_dojo)
+Ninja.objects.create(first_name="ninja2",last_name="show",dojo=second_dojo)
+Ninja.objects.create(first_name="ninja3",last_name="show",dojo=second_dojo)
+
+
+#Q 6
+last_dojo = Dojo.objects.last()
+Ninja.objects.create(first_name="ninja4",last_name="hoo",dojo=last_dojo)
+Ninja.objects.create(first_name="ninja5",last_name="hoo",dojo=last_dojo)
+Ninja.objects.create(first_name="ninja6",last_name="hoo",dojo=last_dojo)
+
+#Q 7
+first_dojo.ninjas.all().values()
+
+#Q 8 
+last_dojo.ninjas.all().values()
+
+#Q 9
+last_ninja = Ninja.objects.last()
+#Q 10
+Dojo.objects.create(name="new_dojo1", city="jenin", state="PS", desc="new dojo was added")
+
+

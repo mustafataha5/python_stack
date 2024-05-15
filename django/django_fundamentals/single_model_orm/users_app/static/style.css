@@ -1,7 +1,14 @@
 /* hr{
     border: 2px solid #444;
 }*/
-
+/* .mytable > thead{
+    position: sticky;
+    z-index: 1;
+}
+.mytable{
+    max-height: 200px;
+    overflow-y: scroll;
+} */
 .read_data{
     display: block;
     overflow-y: scroll;
