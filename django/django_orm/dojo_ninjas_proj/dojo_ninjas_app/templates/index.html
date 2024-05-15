@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        {%load static%}
+        <link rel="stylesheet" href="{%static 'style.css'%}">   
+</head>
+
+<body>
+
+
+        <div class="row add justify-content-center mt-3">
+            <div class="col-sm-4">
+                <div class="card border-dark ">
+                    <h1 class="text-center  m-2">Add Dojo</h1>
+                    <div class="card-body  ">
+                        <form action="/addDojo" method="post">
+                            {%csrf_token%}
+                            <table class="table m-1">
+                                <tr>
+                                    <td>Name</td>
+                                    <td><input type="text" name="name" required></td>
+                                </tr>
+                                <tr>
+                                    <td>city</td>
+                                    <td><input type="text" name="city" required></td>
+                                </tr>
+                                <tr>
+                                    <td>State</td>
+                                    <td><input type="text" name="state" required></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success">Add Dojo</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="card border-dark ">
+                    <h1 class="text-center  m-2">Add Ninja</h1>
+                    <div class="card-body ">
+                        <form action="/addNinja" method="post">
+                            {%csrf_token%}
+                            <table class="table m-1 ">
+                                <tr>
+                                    <td>First Name</td>
+                                    <td><input type="text" name="first_name" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td><input type="text" name="last_name" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Dojo</td>
+                                    <td>
+                                        <select name="select_dojo" required>
+                                            <option  value="" disabled selected>Select a dojo</option>
+                                            {%for dojo in Dojos%}
+                                            <option value="{{dojo.id}}">{{dojo.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success">Add Ninja</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr-main">
+   
+        <div class="row show justify-content-center m-1">
+            <div class="col-sm-4">
+                <div class="card border-dark  mb-5">
+                    <h2 class="text-center">All Dojos</h2>
+                    <div class="card-body d-flex flex-column align-items-center ">
+                        {% for dojo in Dojos%}
+                            <h6>Ninjas in the {{dojo.name}}</h6>
+                            <ul>
+                                {%for ninja in dojo.ninjas.all%}
+                                    <li>{{ninja.first_name}} {{ninja.last_name}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>        
+            </div>
+        </div>
+  
+</body>
+
+</html>
