@@ -39,16 +39,16 @@
             <div class="card border-dark">
                 <div class="card-body p-5">
                     <h1 class="card-title">{{book.title}}</h1>
-                    <h3 class="mt-4">ID: {{book.id}}</h3>
-                    <h3 class="mt-4" >Description:</h3> 
-                    <p class="mx-4">{{book.desc}}</p>
-                    <h3 class="mt-4">Authors:</h3>
+                    <h3 class="mt-3">ID: {{book.id}}</h3>
+                    <h3 class="mt-3" >Description:</h3> 
+                    <p class="mx-3">{{book.desc}}</p>
+                    <h3 class="mt-3">Authors:</h3>
                     <ul >
                         {%for author in book.authors.all %}
                             <li>{{author.first_name}} {{author.last_name}}</li>
                         {% endfor %}    
                     </ul>
-                    <form class="m-2 d-flex justify-content-start" action="/addAuthortoBook/{{book.id}}" method="post">
+                    <form class="m-1 d-flex justify-content-start" action="/addAuthortoBook/{{book.id}}" method="post">
                         {% csrf_token %}
                         <select name="select_author" required>
                           <option disabled  selected value=""> select an authour</option>
@@ -56,7 +56,7 @@
                           <option value="{{ex_author.id}}">{{ex_author.first_name}} {{ex_author.last_name}}</option>
                           {% endfor %}
                         </select>
-                        <button type="submit" class=" mx-4 btn btn-success">Add Author</button>
+                        <button type="submit" class=" mx-4 btn  myshadow btn-warning">Add Author</button>
                       </form>
                 </div>
             </div>

@@ -40,16 +40,16 @@
             <div class="card border-dark">
                 <div class="card-body p-5">
                     <h1 class="card-title">{{author.first_name}} {{author.last_name}}</h1>
-                    <h3 class="mt-4">ID: {{author.id}}</h3>
-                    <h3 class="mt-4" >Description:</h3> 
-                    <p class="mx-4">{{author.notes}}.</p>
-                    <h3 class="mt-4">Books:</h3>
+                    <h3 class="mt-3">ID: {{author.id}}</h3>
+                    <h3 class="mt-3" >Description:</h3> 
+                    <p class="mx-3">{{author.notes}}.</p>
+                    <h3 class="mt-3">Books:</h3>
                     <ul >
                         {%for book in author.books.all %}
                             <li>{{book.title}}</li>
                         {% endfor %}    
                     </ul>
-                    <form class="m-2 d-flex justify-content-start" action="/addBooktoAuthor/{{author.id}}" method="post">
+                    <form class="m-1 d-flex justify-content-start" action="/addBooktoAuthor/{{author.id}}" method="post">
                         {% csrf_token %}
                         <select name="select_book" required>
                           <option disabled  selected value=""> select an authour</option>
@@ -57,7 +57,7 @@
                           <option value="{{ex_book.id}}">{{ex_book.title}}</option>
                           {% endfor %}
                         </select>
-                        <button type="submit" class=" mx-4 btn btn-success">Add Book</button>
+                        <button type="submit" class=" mx-4 btn myshadow btn-warning">Add Book</button>
                       </form>
                 </div>
             </div>
