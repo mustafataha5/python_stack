@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books and Authors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    {%load static%}                
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">    
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Books&Authors</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link "  href="/books">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/authors">Authors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/author/{{author.id}}">{{author.first_name}} {{author.last_name}}</a>
+              </li>
+          </div>
+        </div>
+      </nav>
+    
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-sm-8 ">
+            <div class="card border-dark">
+                <div class="card-body p-5">
+                    <h1 class="card-title">{{author.first_name}} {{author.last_name}}</h1>
+                    <h3 class="mt-4">ID: {{author.id}}</h3>
+                    <h3 class="mt-4" >Description:</h3> 
+                    <p class="mx-4">{{author.notes}}.</p>
+                    <h3 class="mt-4">Books:</h3>
+                    <ul >
+                        {%for book in author.books.all %}
+                            <li>{{book.title}}</li>
+                        {% endfor %}    
+                    </ul>
+                    <form class="m-2 d-flex justify-content-start" action="/addBooktoAuthor/{{author.id}}" method="post">
+                        {% csrf_token %}
+                        <select name="select_book" required>
+                          <option disabled  selected value=""> select an authour</option>
+                          {% for ex_book in ex_books%}
+                          <option value="{{ex_book.id}}">{{ex_book.title}}</option>
+                          {% endfor %}
+                        </select>
+                        <button type="submit" class=" mx-4 btn btn-success">Add Book</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
