@@ -22,29 +22,50 @@
         <div class="new_title">
             <h3>Title:</h3>
             <input type="text" name="title" value="{{show.title}}" required>
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.extra_tags == 'title'%}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {%endif %}
+            {% endfor %}
+            {% endif %}
         </div>
 
         <div class="new_net_data">
             <div>
                 <h3>Network:</h3>
                 <input type="text" name="network" value="{{show.network}}" required>
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.extra_tags == 'network'%}
+                <li class="{{ message.tags }}">{{ message }}</li>
+                {%endif %}
+                {% endfor %}
+                {% endif %}
             </div>
             <div>
                 <h3>Release Date:</h3>
-                <input type="date" name="release_date" value="{{show.release_date|date:"Y-m-d" }}" required>
+                <input type="date" name="release_date" value="{{show.release_date|date:" Y-m-d" }}" required>
             </div>
         </div>
 
         <div class="new_description">
             <h3>Description:</h3>
             <textarea name="description" cols="45" rows="5" required>{{show.description}}</textarea>
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.extra_tags == 'description'%}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {%endif %}
+            {% endfor %}
+            {% endif %}
         </div>
 
-        <button type="submit" >Update</button>
-        
+        <button type="submit">Update</button>
+
 
         <a class="go_show" href="/shows/{{show.id}}">Go to Show</a>
-    
+
     </form>
 
 

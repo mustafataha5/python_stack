@@ -82,3 +82,7 @@ a{
     display: flex;
     justify-content: center; */
 }
+.error{
+    color:#fe5462;
+    list-style-type: none;
+}
