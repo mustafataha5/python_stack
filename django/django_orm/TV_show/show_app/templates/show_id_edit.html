@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update </title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="go_back">
+        <a href="/shows">Go Back</a>
+    </div>
+    <div>
+        <h1 class="new_h1">Edit Show {{show.id}}</h1>
+    </div>
+
+    <form class="new_form" action="/shows/{{show.id}}/update" method="post">
+        {% csrf_token %}
+        <div class="new_title">
+            <h3>Title:</h3>
+            <input type="text" name="title" value="{{show.title}}" required>
+        </div>
+
+        <div class="new_net_data">
+            <div>
+                <h3>Network:</h3>
+                <input type="text" name="network" value="{{show.network}}" required>
+            </div>
+            <div>
+                <h3>Release Date:</h3>
+                <input type="date" name="release_date" value="{{show.release_date|date:"Y-m-d" }}" required>
+            </div>
+        </div>
+
+        <div class="new_description">
+            <h3>Description:</h3>
+            <textarea name="description" cols="45" rows="5" required>{{show.description}}</textarea>
+        </div>
+
+        <button type="submit" >Update</button>
+        
+
+        <a class="go_show" href="/shows/{{show.id}}">Go to Show</a>
+    
+    </form>
+
+
+</body>
+
+</html>

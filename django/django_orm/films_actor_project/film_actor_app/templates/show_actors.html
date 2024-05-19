@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie and Actor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+</head>
+<body>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-sm">
+            <a class="navbar-brand" href="/"><img class="mylogo" src="{% static 'img/logo2.png' %}"
+                    alt="company logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mx-5" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <!-- <a class="nav-link  mx-4 h3" aria-current="page" href="/">Movies</a> -->
+                    <a class="nav-link mx-4 h3" href="/movies">Movies</a>
+                    <a class="nav-link mx-4 h3 active" aria-current="page" href="/actors">Actors</a>
+                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+      <div class="main">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h1 class="card-title text-center"> Actor list</h1>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name </th>
+                    <th scope="col">Num of Movies </th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for actor in actors %}
+                  <tr>
+                    <td>{{actor.id}}</td>
+                    <td>{{actor.first_name}} {{actor.last_name}}</td>
+                    <td>{{ actor.movies.all|length}} 
+                        <a class="collapse-a" onclick="changetext(this)" data-bs-toggle="collapse" href="#actor_m-{{actor.id}}" role="button"
+                            aria-expanded="false" aria-controls="actor_m-{{actor.id}}">
+                            Show.
+                        </a>
+                    <ul class="list-group list-group-flush collapse" id="actor_m-{{actor.id}}">
+                        {%for movie in actor.movies.all %}
+                        <li class="list-group-item"><a class="category" href="/movie/{{movie.id}}">{{movie.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                    </td>
+                    <td><a href="#">edit</a> <a href="#">delete</a></td>
+                  </tr>
+                  {%endfor%}
+                </tbody>
+              </table>  
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="{%static 'js/script.js'%}"></script>
+</body>
+</html>

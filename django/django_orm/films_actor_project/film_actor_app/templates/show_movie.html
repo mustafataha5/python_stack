@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie and Actor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-sm">
+            <a class="navbar-brand" href="/"><img class="mylogo" src="{% static 'img/logo2.png' %}"
+                    alt="company logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mx-5" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <!-- <a class="nav-link  mx-4 h3" aria-current="page" href="/">Movies</a> -->
+                    <a class="nav-link mx-4 h3 "  href="/movies">Movies</a>
+                    <a class="nav-link mx-4 h3" href="/actors">Actors</a>
+                    <a class="nav-link mx-4 mt-2 h6 active" aria-current="page" href="/movie/{{movie.id}}">{{movie.title}}</a>
+                   
+                    <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main d-flex justify-content-center">
+        <div class="card border-dark  m-5 mb-3" >
+            <div class="row g-0 ">
+              <div class="col-md-4">
+                <img src="{{ movie.image_url }}" class="img-fluid rounded-start show-image" alt="{{ movie.image_url }}">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title">{{ movie.title }}</h2>
+                    <table class="table mx-4">
+                        <tr>
+                            <th>Category: </th>
+                            <td> {%for category in movie.categories.all%}
+                                <p class="d-inline-block category mx-1 " >{{ category.name}}</p>
+                                {%endfor%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Rating: </th>
+                            <td>{{ movie.rental_rate}}</td>
+                        </tr>
+                        <tr>
+                            <th>Duration: </th>
+                            <td>{{ movie.duration}} min</td>
+                        </tr>
+                        <tr>
+                            <th>Released: </th>
+                            <td>{{ movie.release_year}}</td>
+                        </tr>
+                        <tr>
+                            <th>Language: </th>
+                            <td>{{ movie.language.name}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Description: </th>
+                            <td>{{ movie.description}}</td>
+                        </tr>
+                        <tr>
+                            <th>Actors: </th>
+                            <td>{%for actor in movie.actors.all%}
+                                <a href="/actor/{{actor.id}}" class="d-inline-block category mx-1 " >{{ actor.first_name}} {{actor.last_name}}</a>
+                                {%endfor%}</td>
+                        </tr>
+                    </table>
+                  <h6 class="card-title"></h6>
+                  <p class="card-text"> </p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>  
+    </div>
+    <hr class="m-5">
+</body>
+
+</html>

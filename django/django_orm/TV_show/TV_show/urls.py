@@ -1,4 +1,4 @@
-"""orm_test URL Configuration
+"""TV_show URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -17,8 +17,6 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path('',include('orm_app.urls')),
-    path('',include('one_to_many_app.urls')), 
-    path('',include('many_to_many_app.urls')),
+    path('',include('show_app.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -1,0 +1,49 @@
+.mylogo{
+    width: 256px;
+    height: 64px;
+    border-radius: 25px;
+}
+
+
+.movie_card_img{
+    width: 318pxpx;
+    height: 220px;
+}
+
+/* .movie_card_img:hover{
+    border-top-right-radius: 25px; 
+    border-top-left-radius: 25px; 
+} */
+
+.category{
+    width: fit-content;
+    text-decoration: none;
+    padding: 3px 3px;
+    border: 1px solid black;
+}
+
+.mycard{
+    width: 20rem;
+    height: 35rem;  
+}
+.mycard-2{
+    width: 15rem;
+    height: 18rem;
+}
+
+
+.movie-title
+{
+    text-decoration: none;
+}
+
+.movie-title:hover
+{
+    color: red;
+}
+.show-image{
+    width: 25rem;
+    height: 100%;
+}
+
+

@@ -1,0 +1,42 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Oswald', sans-serif !important;
+}
+.go_back{
+    margin: 30px 20px;
+    display: flex;
+    justify-content: end;
+}
+.head,.tail{
+ margin: 30px 40px ;
+}
+
+.show_id_table{
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+th{
+    width: 15rem;
+}
+td{
+  
+    padding: 10px 10px;
+}
+.desc >td{
+    padding: 15px 10px;
+}
+.desc > th{
+    padding: 15px 0px;
+    vertical-align:top
+}
+
+a{
+    color: #149fc2;
+}
+
+.tail > div {
+    margin: 10px ;
+}

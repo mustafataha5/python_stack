@@ -1,0 +1,92 @@
+
+
+
+Movie.objects.create(title="Inception",description='A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',image_url='https://m.media-amazon.com/images/S/pv-target-images/21b2db2dbd1ecefe8e6d6578dd6f8c054da0cfc801d008b54167c81a7eaa0356.jpg',release_year=datetime.date(2010, 7, 24),duration=120,language=english)
+
+
+Movie.objects.create(title="The 13th Warrior",description='A man, having fallen in love with the wrong woman, is sent by the sultan himself on a diplomatic mission to a distant land as an ambassador. Stopping at a Viking village port to restock on supplies, he finds himself unwittingly embroiled in a quest to banish a mysterious threat in a distant Viking land.',image_url='https://m.media-amazon.com/images/S/pv-target-images/b32f22966b55e2772af9fb0bf2f3f7367470cff169eee0a029c1a76846492ed0.jpg',release_year=datetime.date(1999, 12,4),duration=102,language=english)
+
+
+Movie.objects.create(title="The Hateful Eight",description="In the dead of a Wyoming winter, a bounty hunter and his prisoner find shelter in a cabin currently inhabited by a collection of nefarious characters.",image_url='https://m.media-amazon.com/images/S/pv-target-images/a119b5a11efc525278b413b716bc94bc63154710d325ea7e94473e244a94e34a.jpg',release_year=datetime.date(2015, 12,1),duration=168,language=english)
+
+Movie.objects.create(title="The Hitman's Bodyguard",description="One of the world's top bodyguards gets a new client, a world class hitman who must testify at the International Criminal Court. They must put their differences aside and work together to make it to the trial alive and on time.",image_url='https://m.media-amazon.com/images/M/MV5BYjYzOTExMzItYmY0Ni00NmQ1LWI3MTMtYzhhOTA0Yzk3YjllXkEyXkFqcGdeQXVyMTY1MTcxMzc@._V1_.jpg',
+release_year=datetime.date(2017, 12,1),duration=124,language=english)
+
+
+
+
+Movie.objects.create(title="Saving Private Ryan",description='Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.',image_url='https://m.media-amazon.com/images/S/pv-target-images/fb5434610f64025d6f1631dc10e2a8cae9dde5920a744526d6a29cfc08d1f653.jpg',release_year=datetime.date(1998, 7,5),duration=180,language=english)
+
+
+
+
+Movie.objects.create(title="Oppenheimer",description='The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.',image_url='https://m.media-amazon.com/images/S/pv-target-images/d227096f638e01167a4cfff2f2aad3beb62f6d9676b95bb56bc72ba286c208af.jpg',release_year=datetime.date(2023, 7,5),duration=180,language=english)
+
+
+
+
+Movie.objects.create(title="Toy Story",description="A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",image_url='https://m.media-amazon.com/images/I/519N3V9KB9L._AC_UF894,1000_QL80_DpWeblab_.jpg',release_year=datetime.date(1995, 8,5),duration=78,language=english)
+
+
+
+Movie.objects.create(title="Rambo: Last Blood",description="Rambo must confront his past and unearth his ruthless combat skills to exact revenge in a final mission.",image_url='https://m.media-amazon.com/images/S/pv-target-images/37939a119c9899bf66df9d8ac9fb067406d30cb98228a3d1a27fc0b04e3b51a4.jpg',release_year=datetime.date(2019, 9,5),duration=90,language=english)
+
+
+Movie.objects.create(title="Escape Plan",description="When a structural-security authority finds himself set up and incarcerated in the world's most secret and secure prison, he has to use his skills to escape with help from the inside.",image_url='https://m.media-amazon.com/images/S/pv-target-images/a99a63917c6cbea0a9b102c63445c95661bd1a7c6d58a99a91fdca1535a36fe2.jpg',release_year=datetime.date(2013, 4,29),duration=115,language=english)
+
+Movie.objects.create(title="Rocky Balboa",description="Thirty years after the ring of the first bell, Rocky Balboa comes out of retirement and dons his gloves for his final fight against the reigning heavyweight champ Mason 'The Line' Dixon.",image_url='https://play.google.com/store/movies/details/Rocky_Heavyweight_Collection?id=kM7oT_xonPA&hl=en_US&gl=US',release_year=datetime.date(2006, 6,29),duration=90,language=english)
+
+
+Movie.objects.create(title="Captain America: The Winter Soldier",description="As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat from history: an assassin known as the Winter Soldier.",image_url='https://m.media-amazon.com/images/S/pv-target-images/dd373c80f7f56639f83aea9bfe95ff5e92e48a25a05d138c0fc8e65f70f397d4.jpg',release_year=datetime.date(2014, 4,15),duration=150,language=english)
+
+
+
+
+tom = Actor.objects.get(id=1)
+dicaprio = Actor.objects.get(id=2)
+samuel=Actor.objects.get(id=3)
+antonio = Actor.objects.get(id=4)
+stallone = Actor.objects.get(id=5)
+cillian = Actor.objects.get(id=6)
+matt = Actor.objects.get(id=7)
+
+django = Movie.objects.get(id=1)
+inceptio = Movie.objects.get(id=2)
+warrior13 = Movie.objects.get(id=3)
+hateful = Movie.objects.get(id=4)
+hitman = Movie.objects.get(id=5)
+ryan = Movie.objects
+ryan = Movie.objects.get(id=6)
+oppenheimer = Movie.objects.get(id=7)
+toy = Movie.objects.get(id=8)
+rambo = Movie.objects.get(id=9)
+escape_plan = Movie.objects.get(id=10)
+rocky = Movie.objects.get(id=11)
+
+action = Category.objects.get(id=1)
+comedy = Category.objects.get(id=2)
+drama = Category.objects.get(id=3)
+adventure = Category.objects.get(id=4)
+crime = Category.objects.get(id=5)
+war  = Category.objects.get(id=6)
+history = Category.objects.get(id=7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%history
+
